@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>profile</title>
+</head>
+<body>
+
+
+
+<div class = "navbar">
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+ | <a href = "{{url_for('home')}}">home</a>
+
+ | <a href = "{{url_for('upload_song')}}">upload a song</a>
+ | <a href = "{{url_for('upload_shows')}}">shows</a>
+ | <a href = "{{url_for('control_panel')}}">control panel</a>
+ | <a href = "{{url_for('audio')}}"> audio files </a>
+<a href = "{{url_for('logout')}}" style = "position:absolute;right:0%;">log out!</a>
+</div>
+
+<header><h1><center>{{member}}'s profile</center></h1></header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+
+	<title>login</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+<body>
+
+<div class = "login_form">
+
+
+
+	<form action = "/choose" method="post">
+
+
+		
+		<span>Member name</span>
+		<br>
+		<input type = "text" name = "member_name" placeholder="member name here">
+		<br>
+		
+		<input id = "submit" type = "submit" value = "log me in!">
+
+
+
+
+	</form>
+	<!-- <form action = "/add_member" method="post">
+
+	<br>
+		<span>member name:</span>
+		<br>
+		<input type = "text" name = "member_name" placeholder="member name here">
+		<br>
+		<span>instrument</span>
+		<br>
+		<input type = "text" name = "instrument" placeholder="instrument here">
+		<br>
+		
+		<input id = "submit" type = "submit" value = "sign me up!">
+
+
+
+
+	</form> -->
+	<h1>{{msg}}</h1>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

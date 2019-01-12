@@ -1,0 +1,83 @@
+<html>
+<head>
+
+<title>control panel</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+
+<body>
+
+
+
+
+<div class = "navbar">
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+
+ | <a href = "{{url_for('home')}}">home</a>
+ | <a href = "{{url_for('upload_song')}}">upload a song</a>
+ | <a href = "{{url_for('upload_shows')}}">shows</a>
+ | <a href = "{{url_for('control_panel')}}">control panel</a>
+ | <a href = "{{url_for('audio')}}"> audio files </a>
+<a href = "{{url_for('logout')}}" style = "position:absolute;right:0%;">log out!</a>
+</div>
+<br>
+
+<div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
+
+<center><h1>your control panel:</h1></center>
+<hr>
+<br>
+<div class = "add_member_to_band">
+
+
+
+<form action = "/control_panel" method="post" style = "border:1px solid black;">
+
+		<h3>add a new member</h3>
+		<span>member name:</span>
+		<br>
+		<input type = "text" name = "member_name" placeholder="member name here">
+		<br>
+		<span>instrument</span>
+		<br>
+		<input type = "text" name = "instrument" placeholder="instrument here">
+		<br>
+		
+		<input id = "submit" type = "submit" value = "add me!">
+		<h4>{{msg}}</h4>
+
+
+
+
+</form>
+<form action = "/adjust" method="post" style = "border:1px solid black;">
+
+		<h3>change a member's role:</h3>
+		<span>member name:</span>
+		<br>
+		<input type = "text" name = "member_name" placeholder="member name here">
+		<br>
+		<span>new instrument</span>
+		<br>
+		<input type = "text" name = "instrument" placeholder="instrument here">
+		<br>
+		
+		<input id = "submit" type = "submit" value = "add me!">
+		<h4>{{adjust_msg}}</h4>
+
+
+
+
+</form>
+
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

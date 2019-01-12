@@ -1,0 +1,50 @@
+<html>
+<head>
+
+<title>{{band_name}}'s page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+
+<body>
+
+
+
+
+<div class = "navbar">
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+ | <a href = "{{url_for('home')}}">home</a>
+
+ | <a href = "{{url_for('upload_song')}}">upload a song</a>
+ | <a href = "{{url_for('upload_shows')}}">shows</a>
+ | <a href = "{{url_for('control_panel')}}">control panel</a>
+ | <a href = "{{url_for('audio')}}"> audio files </a>
+<a href = "{{url_for('logout')}}" style = "position:absolute;right:0%;">log out!</a>
+</div>
+<br>
+
+<div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
+
+<h1>song lyrics:</h1>
+<hr>
+<br>
+{%for lyric in lyrics%}
+<div id = "lyric">
+<h2>{{lyric.member_name}}({{lyric.time[0:-10]}}):</h2>
+
+<h3>{{lyric.song_name}}:</h3>
+<span>{{lyric.song_lyrics}}</span>
+<br>
+<br>
+</div>
+{%endfor%}
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

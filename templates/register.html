@@ -1,0 +1,54 @@
+<html>
+<head>
+
+	<title>register to GangBand</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+<body>
+
+<div class = "register_form">
+
+
+
+	<form action = "/register" method="post">
+
+
+		<span>Band Name:</span>
+		<br>
+		<input type = "text" name = "band_name" placeholder="band name here">
+		<br>
+		<span>Band Username</span>
+		<br>
+		<input type = "text" name = "username" placeholder="username here">
+		<br>
+		<span>Password</span>
+		<br>
+		<input type = "password" name = "password" placeholder="password here">
+		<br>
+		<input id = "submit" type = "submit" value = "sign us up!">
+
+
+
+
+	</form>
+	<h1>{{msg}}</h1>
+	<a href = "{{url_for('login')}}">you already have an account?</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

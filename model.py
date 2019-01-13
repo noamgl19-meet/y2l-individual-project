@@ -16,7 +16,7 @@ class Bands(Base):
     password = Column(String)
 
     def __repr__(self):
-    	message = "Band name: " +self.band_name + "\nUsername: " + self.username + "\nPassword: " + self.password
+    	message = "Band name: " + self.band_name + "\nUsername: " + self.username + "\nPassword: " + self.password
     	return message
 
 #members

@@ -2,11 +2,12 @@ from flask import Flask, render_template,send_from_directory, redirect, request,
 from database import create_band, query_by_username, query_all_bands, query_all_band_members, create_member, query_all_members, query_lyrics_by_username, create_song, query_all_band_shows, add_show, adjust_instrument, add_song, query_all_band_records
 import os
 from werkzeug import secure_filename
+import datetime
 
 
 #constants
 UPLOAD_FOLDER = 'static/'
-ALLOWED_EXTENSIONS = set(['wav', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['mp3', 'wav', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
 
@@ -17,8 +18,8 @@ app.config['SECRET_KEY'] = 'asdf movies'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+	return '.' in filename and \
+		   filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 
@@ -36,7 +37,12 @@ def upload_file():
 					filename = secure_filename(file.filename)
 					file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 					add_song(membername, filename, url_for('uploaded_file', filename = filename), username)
-		           	return redirect(url_for('audio'))
+				   	return redirect(url_for('audio'))
+				else:
+					return redirect(url_for('audio'))
+			else:
+				return redirect(url_for('audio'))
+
 		else:
 			return redirect(url_for('choose'))
 	else:
@@ -44,8 +50,9 @@ def upload_file():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
+
+	return send_from_directory(app.config['UPLOAD_FOLDER'],
+							   filename)
 
 
 
@@ -72,23 +79,23 @@ def login():
 		return render_template("login.html")
 	else:
 		username = request.form['username']
-    	password = request.form['password']
+		password = request.form['password']
 
-    	bands = query_all_bands()
-    	is_match = False
-    	for band in bands:
-    		if band.username == username:
-    			if band.password == password:
-    				loging_session['username'] = username
-    				is_match = True
-    				members = query_all_band_members(username)
-    				if len(members) < 1:
-    					return render_template('add_member.html')
-    				else:
-    					return render_template("choose.html")
-    	if is_match == False:
-    		return render_template('login.html', msg = "not matching")
-    	
+		bands = query_all_bands()
+		is_match = False
+		for band in bands:
+			if band.username == username:
+				if band.password == password:
+					loging_session['username'] = username
+					is_match = True
+					members = query_all_band_members(username)
+					if len(members) < 1:
+						return render_template('add_member.html')
+					else:
+						return render_template("choose.html")
+		if is_match == False:
+			return render_template('login.html', msg = "not matching")
+		
 
 #register
 @app.route('/register', methods=['POST', 'GET'])
@@ -398,5 +405,5 @@ def upload_record():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.run(debug=True)
 

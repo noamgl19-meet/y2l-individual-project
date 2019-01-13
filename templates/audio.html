@@ -2,25 +2,35 @@
 <head>
 
 <title>songs</title>
-
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
 
 <div class = "navbar">
-<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+<center>
 
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
  | <a href = "{{url_for('home')}}">home</a>
  | <a href = "{{url_for('upload_song')}}">upload a song</a>
  | <a href = "{{url_for('upload_shows')}}">shows</a>
  | <a href = "{{url_for('control_panel')}}">control panel</a>
  | <a href = "{{url_for('audio')}}"> audio files </a>
-<a href = "{{url_for('logout')}}" style = "position:absolute;right:0%;">log out!</a>
+<a href = "{{url_for('logout')}}" style = "position:fixed;right:0%;">log out!</a>
+</center>
 </div>
+<center>
 <h1>your songs</h1>
-
+<hr>
 
 {%for song in songs%}
-<span>{{song.member_name}}: <a href="{{song.link}}">{{song.name}}</a></span>
+<span>{{song.member_name}}: {{song.name}}
+<br>
+<audio controls>
+<source src="{{song.link}}" type = "audio/ogg">
+</audio>
+
+
+</span>
 <br>
 {%endfor%}
 
@@ -31,7 +41,7 @@
 
 </form>
 
-
+</center>
 
 
 

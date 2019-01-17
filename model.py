@@ -64,3 +64,22 @@ class Songs(Base):
 	link = Column(String)
 	band_name = Column(String)
 
+class Tasks(Base):
+	__tablename__ = "tasks"
+	id = Column(Integer, primary_key = True)
+	member_name = Column(String)
+	name = Column(String)
+	link = Column(String)
+	band_name = Column(String)
+	notes = Column(String)
+	send_to = Column(String)
+
+class Reply(Base):
+	__tablename__ = "reply"
+	id = Column(Integer, primary_key = True)
+	member_name = Column(String)
+	message = Column(String)
+	time = Column(String)
+	send_to = Column(String)
+	band_name = Column(String)
+	filename = Column(String)

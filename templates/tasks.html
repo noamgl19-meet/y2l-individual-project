@@ -1,0 +1,80 @@
+<html>
+<head>
+
+<title>songs</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+<img src = "{{ url_for('static', filename='logo.jpeg') }}" width = "200" id = "logo">
+
+<div class = "navbar">
+<center>
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+ | <a href = "{{url_for('home')}}">{{band}}</a>
+ | <a href = "{{url_for('upload_song')}}">upload a song</a>
+ | <a href = "{{url_for('upload_shows')}}">shows</a>
+ | <a href = "{{url_for('control_panel')}}">control panel</a>
+ | <a href = "{{url_for('audio')}}">audio files</a>
+ | <a href = "{{url_for('task')}}">send a task</a>
+ |
+<a href = "{{url_for('logout')}}">log out!</a>
+</center>
+</div>
+<div class = "content">
+<center>
+
+<h1>upload a new file</h1>
+<form action = '/upload_task' method = "post" enctype = "multipart/form-data">
+<p><input type="file" name="file"></p>
+<br>
+<span>enter your instructions and comments: </span>
+<br>
+<input type = "text" name = "notes" placeholder="instructions, comments, and anything you wanna add..." height = "300" width = "300">
+
+<br>
+<span>send to </span>
+<br>
+<input type = "text" name = "send_to" placeholder="who do you wanna send to..." height = "300" width = "300">
+
+<br>
+<input type="submit" value="Upload">
+
+</form>
+
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

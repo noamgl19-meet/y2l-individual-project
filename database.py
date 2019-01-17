@@ -63,5 +63,29 @@ def query_all_band_records(username):
 	songs = session.query(Songs).filter_by(band_name = username).all()
 	return songs
 
+def add_task(member_name, name, link, band_name, notes, send_to):
+	task = Tasks(member_name = member_name ,name = name, link = link, band_name = band_name, notes = notes, send_to = send_to)
+	session.add(task)
+	session.commit()
 
+def query_all_band_tasks(username):
+	tasks = session.query(Tasks).filter_by(band_name = username).all()
+	return tasks
+
+def query_tasks_to_member(username, member_name):
+	tasks = session.query(Tasks).filter_by(member_name = member_name).all()
+	update_tasks = []
+	for task in tasks:
+		if task.band_name == username:
+			update_tasks.append(task)
+	return update_tasks
+
+def query_reply_by_name(username):
+	replys = session.query(Reply).filter_by(band_name = username).all()
+	return replys
+
+def add_reply(member_name, message, time, send_to, band_name, filename):
+	reply = Reply(member_name = member_name, message = message, time = time, send_to = send_to, band_name = band_name, filename = filename)
+	session.add(reply)
+	session.commit()
 # create_song("datura", "hello i am writing a story now so i can check line width, it should not take me so long to do, i think what i did so far is enough, by.", "noam", "datura")

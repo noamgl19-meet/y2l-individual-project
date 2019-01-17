@@ -11,23 +11,28 @@
 
 
 
-<div class = "navbar">
-<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+<img src = "{{ url_for('static', filename='logo.jpeg') }}" width = "200" id = "logo">
 
- | <a href = "{{url_for('home')}}">home</a>
+<div class = "navbar">
+<center>
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+ | <a href = "{{url_for('home')}}">{{band}}</a>
  | <a href = "{{url_for('upload_song')}}">upload a song</a>
  | <a href = "{{url_for('upload_shows')}}">shows</a>
  | <a href = "{{url_for('control_panel')}}">control panel</a>
- | <a href = "{{url_for('audio')}}"> audio files </a>
-<a href = "{{url_for('logout')}}" style = "position:absolute;right:0%;">log out!</a>
+ | <a href = "{{url_for('audio')}}">audio files</a>
+ | <a href = "{{url_for('task')}}">send a task</a>
+ |
+<a href = "{{url_for('logout')}}">log out!</a>
+</center>
 </div>
 <br>
-
+<div class = "content">
+<center>
 <div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
 
 
 
-</div>
 <br>
 <form action = '/upload_song' method = "post">
 <h2>upload a song!</h2>
@@ -41,7 +46,25 @@
 <br>
 <input id = "submit" type = "submit" value = "upload">
 
+<div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
 
+<h1>song lyrics:</h1>
+<hr>
+<br>
+{%for lyric in lyrics%}
+<div id = "lyric">
+<h2>{{lyric.member_name}}({{lyric.time[0:-10]}}):</h2>
+
+<h3>{{lyric.song_name}}:</h3>
+<span>{{lyric.song_lyrics}}</span>
+<br>
+<br>
+</div>
+{%endfor%}
+
+</div>
+</div>
+</center>
 
 
 
@@ -54,7 +77,7 @@
 
 
 
-
+</div>
 
 </body>
 </html>

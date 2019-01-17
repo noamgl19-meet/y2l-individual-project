@@ -27,14 +27,51 @@ a:hover{
 	margin-left:-20px;
 	margin-right:-20px;
 	padding-bottom:7px;
-	margin-top:-10px;
-	background-color: black;
+	position: fixed;
+	top:5%;
+	margin-left: 15%;
+}
+#logo{
+	position: fixed;
+	top:0%;
+	left:0%;
 }
 .navbar{
-		text-align: center;
+	text-align: center;
 	padding-top:15px;
 	margin-left:-20px;
 	margin-right:-20px;
 	padding-bottom:7px;
 	margin-top:-10px;
+	position: fixed;
+	top:5%;
+	margin-left: 15%;
+
+}
+.replies{
+	position:absolute;
+	left:25%;
+	top:16%;
+	width:25%;
+	margin-right:20%;
+	margin-top:1.19%;
+	overflow-y:scroll;
+	height:63%;
+
+
+
+}
+.tasks{
+	position:absolute;
+	right:25%;
+	top:16%;
+	width:25%;
+	margin-left:20%;
+	margin-top:1.19%;
+	overflow-y:scroll;
+	height:63%;
+
+}
+.content{
+	margin-top:5%;
 }

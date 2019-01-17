@@ -11,16 +11,22 @@
 
 
 
-<div class = "navbar">
-<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+<img src = "{{ url_for('static', filename='logo.jpeg') }}" width = "200" id = "logo">
 
- | <a href = "{{url_for('home')}}">home</a>
+<div class = "navbar">
+<center>
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+ | <a href = "{{url_for('home')}}">{{band}}</a>
  | <a href = "{{url_for('upload_song')}}">upload a song</a>
  | <a href = "{{url_for('upload_shows')}}">shows</a>
  | <a href = "{{url_for('control_panel')}}">control panel</a>
- | <a href = "{{url_for('audio')}}"> audio files </a>
-<a href = "{{url_for('logout')}}" style = "position:absolute;right:0%;">log out!</a>
+ | <a href = "{{url_for('audio')}}">audio files</a>
+ | <a href = "{{url_for('task')}}">send a task</a>
+ |
+<a href = "{{url_for('logout')}}">log out!</a>
+</center>
 </div>
+<div class = "content">
 <br>
 
 <div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
@@ -78,6 +84,6 @@
 
 
 
-
+</div>
 </body>
 </html>

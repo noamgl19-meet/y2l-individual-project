@@ -2,23 +2,96 @@
 <html>
 <head>
 	<title>profile</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
 </head>
 <body>
 
 
 
-<div class = "navbar">
-<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
- | <a href = "{{url_for('home')}}">home</a>
+<img src = "{{ url_for('static', filename='logo.jpeg') }}" width = "200" id = "logo">
 
+<div class = "navbar">
+<center>
+<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+ | <a href = "{{url_for('home')}}">{{band}}</a>
  | <a href = "{{url_for('upload_song')}}">upload a song</a>
  | <a href = "{{url_for('upload_shows')}}">shows</a>
  | <a href = "{{url_for('control_panel')}}">control panel</a>
- | <a href = "{{url_for('audio')}}"> audio files </a>
-<a href = "{{url_for('logout')}}" style = "position:absolute;right:0%;">log out!</a>
+ | <a href = "{{url_for('audio')}}">audio files</a>
+ | <a href = "{{url_for('task')}}">send a task</a>
+ |
+<a href = "{{url_for('logout')}}">log out!</a>
+</center>
+</div>
+<div class = "content">
+<center>
+<header><h1><center>{{member}}'s profile</center></h1></header>
+<hr>
+
+
+<br>
+<div class = "tasks">
+{%if tlen > 0%}
+
+<h1>your tasks</h1>
+
+{%endif%}
+{%for task in tasks%}
+<span>{{task.member_name}} sent you a task: </span>
+<br>
+<audio controls>
+<source src="{{task.link}}" type = "audio/mpeg">
+</audio>
+<br>
+
+<span> "{{task.notes}}" </span>
+<br>
+<form action ='/reply' method = 'post' enctype="multipart/form-data">
+
+
+<h2>add a reply</h2>
+<span>to: (don't change)</span>
+<br>
+<input type = "text" name = 'send_to' value = "{{task.member_name}}">
+<br>
+<span>about: (don't change)</span>
+<br>
+<input type = "text" name = 'filename' value = "{{task.name}}">
+
+
+<br>
+<span>your message</span>
+<br>
+<input type = "text" name = "message" placeholder = "your reply here...">
+<br>
+<input type="submit" value = "reply">
+
+
+</form>
+
+<br>
+{%endfor%}
 </div>
 
-<header><h1><center>{{member}}'s profile</center></h1></header>
+<div class = "replies">
+{%if rlen > 0%}
+<h1>people replied to you: </h1>
+{%endif%}
+{%for reply in replies%}
+
+<span>{{reply.member_name}}:
+<br>
+{{reply.message}}
+<br>
+about: {{reply.filename}}
+<br>
+(at {{reply.time[0:-10]}})
+<br>
+<br>
+</span>
+{%endfor%}
+</div>
 
 
 
@@ -26,16 +99,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+</center>
+</div>
 </body>
 </html>

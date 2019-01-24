@@ -83,3 +83,14 @@ class Reply(Base):
 	send_to = Column(String)
 	band_name = Column(String)
 	filename = Column(String)
+
+
+#chat
+
+class Chat(Base):
+	__tablename__ = "chat"
+	id = Column(Integer, primary_key = True)
+	sender = Column(String)
+	message = Column(String)
+	time = Column(String)
+	band_username = Column(String)

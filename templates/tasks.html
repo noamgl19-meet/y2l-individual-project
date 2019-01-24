@@ -35,8 +35,17 @@
 <br>
 <span>send to </span>
 <br>
-<input type = "text" name = "send_to" placeholder="who do you wanna send to..." height = "300" width = "300">
+<select name="send_to">
+	{%for member in members%}
+    <option value="{{member.member_name}}">{{member.member_name}}</option>
+	
 
+
+
+	{%endfor%}
+    
+</select>
+<br>
 <br>
 <input type="submit" value="Upload">
 

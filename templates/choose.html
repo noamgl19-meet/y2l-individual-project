@@ -17,7 +17,17 @@
 		
 		<span>Member name</span>
 		<br>
-		<input type = "text" name = "member_name" placeholder="member name here">
+		<select name="member_name">
+			{%for member in members%}
+    		<option value="{{member.member_name}}">{{member.member_name}}</option>
+	
+
+
+
+			{%endfor%}
+    
+		</select>
+		<br>	
 		<br>
 		
 		<input id = "submit" type = "submit" value = "log me in!">

@@ -53,7 +53,16 @@
 <h2>add a reply</h2>
 <span>to: (don't change)</span>
 <br>
-<input type = "text" name = 'send_to' value = "{{task.member_name}}">
+<select name="send_to">
+	{%for member in members%}
+    <option value="{{member.member_name}}">{{member.member_name}}</option>
+	
+
+
+
+	{%endfor%}
+    
+</select>
 <br>
 <span>about: (don't change)</span>
 <br>

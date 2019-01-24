@@ -3,7 +3,7 @@ from database import create_band, query_by_username, query_all_bands, query_all_
 import os
 from werkzeug import secure_filename
 import datetime
-from database import add_reply, query_reply_by_name
+from database import add_reply, query_reply_by_name, add_message, query_all_band_messages
 
 
 
@@ -142,7 +142,8 @@ def task():
             tasks = query_all_band_tasks(username)
             band = query_by_username(username)
             bandName = band.band_name
-            return render_template('tasks.html', member = membername, tasks = tasks, band = bandName)
+            members = query_all_band_members(username)
+            return render_template('tasks.html', member = membername, tasks = tasks, band = bandName, members = members)
         else:
             return redirect(url_for('choose'))
     else:
@@ -169,7 +170,8 @@ def login():
                     if len(members) < 1:
                         return render_template('add_member.html')
                     else:
-                        return render_template("choose.html")
+                        members = query_all_band_members(username)
+                        return render_template("choose.html", members = members)
         if is_match == False:
             return render_template('login.html', msg = "not matching")
         
@@ -206,20 +208,16 @@ def choose():
         
         
         if request.method == 'GET':
-            
-            return render_template("choose.html")
+            members = query_all_band_members(username)
+
+            return render_template("choose.html", members = members)
         else:
             member_name = request.form['member_name']
             members = query_all_band_members(username)
-            names = []
-            for i in range(len(members)):
-                names.append(members[i].member_name)
-
-            if member_name in names:
-                loging_session['member_name'] = member_name
-                return redirect(url_for("home"))
-            else:
-                return redirect(url_for("choose"))
+            
+            loging_session['member_name'] = member_name
+            return redirect(url_for("home"))
+            
     else:
         return redirect(url_for('login'))
 
@@ -305,7 +303,9 @@ def profile():
             replies_len = len(update_reply)
             band = query_by_username(username)
             bandName = band.band_name
-            return render_template('profile.html', member = membername, tasks = update_tasks, replies = update_reply, tlen = tasks_len, rlen = replies_len, band = bandName)
+
+            members = query_all_band_members(username)
+            return render_template('profile.html',members = members, member = membername, tasks = update_tasks, replies = update_reply, tlen = tasks_len, rlen = replies_len, band = bandName)
         else:
             return redirect(url_for('choose'))
     else:
@@ -419,36 +419,6 @@ def control_panel():
                 return render_template("cp.html", member = membername, band = bandName)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             #end
         else:
             return render_template('choose.html')
@@ -488,34 +458,30 @@ def adjust():
                 bandName = band.band_name
                 return render_template('cp.html',band = bandName ,adjust_msg = "an unknown error has accured.", member = membername)
 
-                    
-
-
-
-
-
-
-
-
-
-
-
         else:
             return redirect(url_for('choose'))
     else:
         return redirect(url_for('login'))
 
 
-#records
-@app.route('/upload_record')
-def upload_record():
+# @app.route('/chat', methods = ['GET','POST'])
+# def chat():
+#     if 'username' in loging_session:
+#         if 'member_name' in loging_session:
+#             username = loging_session['username']
+#             membername = loging_session['member_name']
+#             if request.method == 'GET':
+#                 messages = query_all_band_messages(username)
+#                 return render_template("chat.html", messages = messages, member = membername, username = username)
+#             else:
+#                 message = request.form['message']
+#                 time = datetime.datetime.now()
+#                 sender = membername
+#                 band_username = username
+#                 add_message(sender, message, time, band_username)
+#                 messages = query_all_band_messages(username)
 
-    # file = request.files['input_file']
-
-
-    # newFile = record(file.filename, file.read())
-    
-    return ' is saved to the database.'
+#                 return render_template("chat.html", messages = messages, member = membername, username = username)
 
 
 if __name__ == '__main__':

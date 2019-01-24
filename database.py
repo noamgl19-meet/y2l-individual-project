@@ -88,4 +88,19 @@ def add_reply(member_name, message, time, send_to, band_name, filename):
 	reply = Reply(member_name = member_name, message = message, time = time, send_to = send_to, band_name = band_name, filename = filename)
 	session.add(reply)
 	session.commit()
+
+def add_message(sender, message, time, band_username):
+	message = Chat(sender = sender, message = message, time = str(time), band_username = band_username)
+	session.add(message)
+	session.commit()
+
+def query_all_band_messages(username):
+	messages = session.query(Chat).filter_by(band_name = username).all()
+	return messages
+
+
+
+
+
+
 # create_song("datura", "hello i am writing a story now so i can check line width, it should not take me so long to do, i think what i did so far is enough, by.", "noam", "datura")

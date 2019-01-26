@@ -1,13 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300|Special+Elite|Staatliches');
 
+body.cp{
+	    background: url('8.jpeg') no-repeat center center fixed; 
+      background-size: cover;
+
+}
+body.profile{
+	    background: url('13.jpeg') no-repeat center center fixed; 
+      background-size: cover;
+
+}
+body.tasks{
+	    background: url('12.jpeg') no-repeat center center fixed; 
+      background-size: cover;
+
+}
 body.audio {
-    background: url('6.jpeg') no-repeat center center fixed; 
+    background: url('7.jpeg') no-repeat center center fixed; 
+      background-size: cover;
+
 }
 body.register {
     background: url('m.jpeg') no-repeat center center fixed; 
   
 }
+body.home{
+	background: url('5.jpeg') no-repeat center center fixed; 
+  background-size: cover;
 
+}
+body.shows{
+	background: url('3.jpeg') no-repeat center center fixed; 
+  background-size: cover;
+
+}
 body{
  background: url('6.jpeg') no-repeat center center fixed; 
  margin: 0;
@@ -18,7 +44,7 @@ font-family: 'Special Elite', cursive;
 font-family: 'Fjalla One', sans-serif;
 color:#fff;
 }
-h1,h2{
+h1,h2,h3{
 	  text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 
 }
@@ -70,14 +96,33 @@ h1,h2{
 
 
 }
-.tasks{
-	position:absolute;
-	right:25%;
-	top:16%;
-	width:25%;
-	margin-left:20%;
-	margin-top:1.19%;
-	overflow-y:scroll;
-	height:63%;
 
+.content{
+	margin-top:5%;
+}
+
+.btn{
+	color:black;
+}
+
+input[type=text] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+.form_cp{
+	background: rgba(255,255, 255, 0.3);
+	border-radius:30px;
+	padding-top: 5px;
+    padding-bottom: 10px;
 }

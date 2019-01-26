@@ -77,8 +77,8 @@
 	<h2>Choose Band member</h2>
 		<div class="custom-select" style="width:200px;">
 		<span>Member name</span>
-			<select name="member_name" >
   			<option value="" selected disabled hidden>Choose here</option>
+  			<select name="member_name" >
   			{%for member in members%}
     		<option value="{{member.member_name}}">{{member.member_name}}</option>
 			{%endfor%}

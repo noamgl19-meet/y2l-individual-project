@@ -5,25 +5,20 @@
 <title>control panel</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
-<body>
-<div class="text-center" id="header">
-  <h1>Gang Band</h1>
-  <h2>Manage your art</h2>
+<body class="cp">
+<div class="navbar-fixed-top">
 
-  <span>Hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
-
-
-</div>
-
-<div id="body">
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
- <div class="navbar-header"> 
+ <div class="navbar-">
         <a class="navbar-brand" href="#">Gang Band</a>
+
       </div>
 
 <ul class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
- <li><a href = "{{url_for('home')}}">{{band}}</a></li>
+ <li><a href = "{{url_for('profile')}}">hello {{member}}!</a></li>
+
+ <li><a href = "{{url_for('home')}}">{{band}}'s Scedule</a></li>
  <li><a href = "{{url_for('upload_song')}}">Upload A Song</a></li>
  <li><a href = "{{url_for('upload_shows')}}">Shows</a></li>
  <li><a href = "{{url_for('control_panel')}}">Control Panel</a></li>
@@ -31,30 +26,25 @@
  <li><a href = "{{url_for('task')}}">Send A Task</a></li>
  <li><a href = "{{url_for('logout')}}">Log out</a></li>
 
+
  </ul>
 </div>
 </div>
 </nav>
-</div>
-
-
+</div> 
 
 
 
 
 <div class = "content">
-<br>
 
 <div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
 
 <center><h1>your control panel:</h1></center>
-<hr>
-<br>
-<div class = "add_member_to_band">
 
+<div class = "add_member_to_band" >
 
-
-<form action = "/control_panel" method="post" style = "border:1px solid black;">
+<form action = "/control_panel" method="post" class="form_cp" >
 
 		<h3>add a new member</h3>
 		<span>member name:</span>
@@ -65,15 +55,13 @@
 		<br>
 		<input type = "text" name = "instrument" placeholder="instrument here">
 		<br>
-		
-		<input id = "submit" type = "submit" value = "add me!">
+		<br>
+		<input class="btn"id = "submit" type = "submit" value = "add me!">
 		<h4>{{msg}}</h4>
 
 
-
-
 </form>
-<form action = "/adjust" method="post" style = "border:1px solid black;">
+<form action = "/adjust" method="post" class="form_cp" >
 
 		<h3>change a member's role:</h3>
 		<span>member name:</span>
@@ -84,8 +72,8 @@
 		<br>
 		<input type = "text" name = "instrument" placeholder="instrument here">
 		<br>
-		
-		<input id = "submit" type = "submit" value = "add me!">
+		<br>
+		<input  class="btn" id = "submit" type = "submit" value = "add me!">
 		<h4>{{adjust_msg}}</h4>
 
 

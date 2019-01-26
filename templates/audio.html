@@ -14,27 +14,19 @@
 </head>
 <body class="audio">
 <center>
+<div class="navbar-fixed-top">
 
-<div class="text-center" id="header">
-  <h1>Gang Band</h1>
-  <h2>Manage your art</h2>
-  
-  <span>Hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
-
-
-</div>
-
-<div id="body">
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
- <div class="navbar-header">
-       
+ <div class="navbar-">
         <a class="navbar-brand" href="#">Gang Band</a>
- 	
+
       </div>
 
 <ul class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
- <li><a href = "{{url_for('home')}}">{{band}}</a></li>
+ <li><a href = "{{url_for('profile')}}">hello {{member}}!</a></li>
+
+ <li><a href = "{{url_for('home')}}">{{band}}'s Scedule</a></li>
  <li><a href = "{{url_for('upload_song')}}">Upload A Song</a></li>
  <li><a href = "{{url_for('upload_shows')}}">Shows</a></li>
  <li><a href = "{{url_for('control_panel')}}">Control Panel</a></li>
@@ -42,14 +34,12 @@
  <li><a href = "{{url_for('task')}}">Send A Task</a></li>
  <li><a href = "{{url_for('logout')}}">Log out</a></li>
 
+
  </ul>
 </div>
 </div>
 </nav>
 </div>
-
-
-
 
 <div class = "content">
 <h1>your songs</h1>
@@ -59,21 +49,23 @@
 <span>{{song.member_name}}: {{song.name}}
 <br>
 <audio controls>
-<source src="{{song.link}}" type = "audio/ogg">
+<source src="{{song.link}}" type = "audio/ogg" >
 </audio>
 
 
 </span>
 <br>
 {%endfor%}
+<hr>
 
+<div class="form_cp" style="width:50%;">
 <h1>upload a new file</h1>
-<form action = '/upload_file' method = "post" enctype = "multipart/form-data">
-<p><input type="file" name="file"></p>
-<input type="submit" value="Upload">
+<form class="btn" action = '/upload_file' method = "post" enctype = "multipart/form-data">
+<p><input class="btn" type="file" name="file"></p>
+<input type="submit" value="Upload" class="btn">
 
 </form>
-
+</div>
 </center>
 </div>
 

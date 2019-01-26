@@ -1,19 +1,11 @@
 <html>
 <head>
-
 	<title>add member to GangBand</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
 </head>
 <body>
-
 <div class = "member_form">
-
-
-
 	<form action = "/add_member" method="post">
-
-
 		<span>member name:</span>
 		<br>
 		<input type = "text" name = "member_name" placeholder="member name here">
@@ -22,30 +14,9 @@
 		<br>
 		<input type = "text" name = "instrument" placeholder="instrument here">
 		<br>
-		
 		<input id = "submit" type = "submit" value = "sign me up!">
-
-
-
-
 	</form>
 	<h1>{{msg}}</h1>
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

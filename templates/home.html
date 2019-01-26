@@ -1,38 +1,55 @@
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <title>{{band_name}}'s page</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
 </head>
-
 <body>
-
-
-
-<img src = "{{ url_for('static', filename='logo.jpeg') }}" width = "200" id = "logo">
-
-<div class = "navbar">
 <center>
-<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
- | <a href = "{{url_for('home')}}">{{band}}</a>
- | <a href = "{{url_for('upload_song')}}">upload a song</a>
- | <a href = "{{url_for('upload_shows')}}">shows</a>
- | <a href = "{{url_for('control_panel')}}">control panel</a>
- | <a href = "{{url_for('audio')}}">audio files</a>
- | <a href = "{{url_for('task')}}">send a task</a>
- |
-<a href = "{{url_for('logout')}}">log out!</a>
-</center>
+<div class="text-center" id="header">
+  <h1>Gang Band</h1>
+  <h2>Manage your art</h2>
+
+  <span>Hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
+
+
 </div>
+
+<div id="body">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+ <div class="navbar-header"> 
+        <a class="navbar-brand" href="#">Gang Band</a>
+      </div>
+
+<ul class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
+ <li><a href = "{{url_for('home')}}">{{band}}</a></li>
+ <li><a href = "{{url_for('upload_song')}}">Upload A Song</a></li>
+ <li><a href = "{{url_for('upload_shows')}}">Shows</a></li>
+ <li><a href = "{{url_for('control_panel')}}">Control Panel</a></li>
+ <li><a href = "{{url_for('audio')}}">Audio Files</a></li>
+ <li><a href = "{{url_for('task')}}">Send A Task</a></li>
+ <li><a href = "{{url_for('logout')}}">Log out</a></li>
+
+ </ul>
+</div>
+</div>
+</nav>
+</div>
+
+
+
+
 <div class = "content">
-<center>
 <br>
-<h1>{{band}}</h1>
+<h1>Hi {{band}}</h1>
 <hr>
 <div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
 
-<h1>your schedule:</h1>
+<h1>Your Schedule:</h1>
 <br>
 
 {%for show in shows%}
@@ -47,13 +64,25 @@
 
 
 </div>
-<br>
 
 
 
 
 
 </center>
-</div>
+
+<script>
+var  mn = $(".navbar.navbar-default");
+var  mns = "navbar-fixed-top";
+var  hdr = $('#header').height(); 
+
+$(window).scroll(function() {
+  if( $(this).scrollTop() > (hdr+80) ) {
+    mn.addClass(mns);
+  } else {
+    mn.removeClass(mns);
+  }
+});
+</script>
 </body>
 </html>

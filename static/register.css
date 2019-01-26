@@ -5,7 +5,10 @@ body{
 font-family: 'Staatliches', cursive;
 font-family: 'Special Elite', cursive;
 font-family: 'Fjalla One', sans-serif;
-    background: url('3.jpeg') no-repeat center center fixed; 
+    background: url('2.jpeg') no-repeat center center fixed; 
+background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
 .page-content {
@@ -173,3 +176,4 @@ a:hover{
 	font-weight: bold;
 	padding-bottom:5px;
 }
+

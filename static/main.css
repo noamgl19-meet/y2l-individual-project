@@ -118,6 +118,7 @@ input[type=text] {
 
 input[type=text]:focus {
   border: 3px solid #555;
+  color:black;
 }
 
 .form_cp{

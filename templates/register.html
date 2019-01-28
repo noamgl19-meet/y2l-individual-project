@@ -2,53 +2,50 @@
 <head>
 
 	<title>register to GangBand</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 
 </head>
-<body>
+<body class="form-v5">
+<center>
+<div class="page-content">
+<div class="form-v5-content">
+	<form action = "/register" method="post" class="form-detail">
+<h2>Register Account</h2>
 
-<div class = "register_form">
-
-
-
-	<form action = "/register" method="post">
-
-
+		<div class="form-row">
 		<span>Band Name:</span>
-		<br>
-		<input type = "text" name = "band_name" placeholder="band name here">
-		<br>
+		<input type = "text" name = "band_name" placeholder="band name here" class="input-text" required>
+		<i class="fas fa-user"></i>
+		</div>
+		<div class="form-row">
 		<span>Band Username</span>
-		<br>
-		<input type = "text" name = "username" placeholder="username here">
-		<br>
+		<input type = "text" name = "username" placeholder="username here" class="input-text" required>
+		<i class="fas fa-envelope"></i>
+
+		</div>
+		<div class="form-row">
 		<span>Password</span>
+		<input type = "password" name = "password" placeholder="password here" class="input-text" required>
+		<i class="fas fa-lock"></i>
+
+		</div>
+		<input id = "submit" type="submit" name="register" class="register" value="Register">
 		<br>
-		<input type = "password" name = "password" placeholder="password here">
-		<br>
-		<input id = "submit" type = "submit" value = "sign us up!">
-
-
-
+	<a href = "{{url_for('login')}}">You already have an account?</a>
 
 	</form>
-	<h1>{{msg}}</h1>
-	<a href = "{{url_for('login')}}">you already have an account?</a>
+<h1>{{msg}}</h1>
 
+	</div>
+	</div>
+	</center>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  gtag('config', 'UA-23581568-13');
+</script>
 </body>
 </html>

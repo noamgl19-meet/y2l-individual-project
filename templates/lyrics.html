@@ -1,6 +1,7 @@
 <html>
 <head>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <title>{{band_name}}'s shows</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
@@ -8,34 +9,38 @@
 
 <body>
 
+<div class="navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+ <div class="navbar-">
+        <a class="navbar-brand" href="#">Gang Band</a>
+
+      </div>
+
+<ul class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
+ <li><a href = "{{url_for('profile')}}">hello {{member}}!</a></li>
+
+ <li><a href = "{{url_for('home')}}">{{band}}'s Scedule</a></li>
+ <li><a href = "{{url_for('upload_song')}}">Upload A Song</a></li>
+ <li><a href = "{{url_for('upload_shows')}}">Shows</a></li>
+ <li><a href = "{{url_for('control_panel')}}">Control Panel</a></li>
+ <li><a href = "{{url_for('audio')}}">Audio Files</a></li>
+ <li><a href = "{{url_for('task')}}">Send A Task</a></li>
+ <li><a href = "{{url_for('logout')}}">Log out</a></li>
 
 
-
-<img src = "{{ url_for('static', filename='logo.jpeg') }}" width = "200" id = "logo">
-
-<div class = "navbar">
-<center>
-<span >hello <a href = "{{url_for('profile')}}">{{member}}!</a></span>
- | <a href = "{{url_for('home')}}">{{band}}</a>
- | <a href = "{{url_for('upload_song')}}">upload a song</a>
- | <a href = "{{url_for('upload_shows')}}">shows</a>
- | <a href = "{{url_for('control_panel')}}">control panel</a>
- | <a href = "{{url_for('audio')}}">audio files</a>
- | <a href = "{{url_for('task')}}">send a task</a>
- |
-<a href = "{{url_for('logout')}}">log out!</a>
-</center>
+ </ul>
 </div>
-<br>
+</div>
+</nav>
+</div>
 <div class = "content">
 <center>
-<div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
-
-
+<div class = "lyrics">
 
 <br>
-<form action = '/upload_song' method = "post">
-<h2>upload a song!</h2>
+<form action = '/upload_song' method = "post" class="form_cp" style="width:50%">
+<h1>upload a song!</h1>
 <span>name</span>
 <br>
 <input type = "text" name = "song_name" placeholder="song name">
@@ -44,7 +49,8 @@
 <br>
 <input type = "text" name = "song_lyrics" placeholder="lyrics" height = "450">
 <br>
-<input id = "submit" type = "submit" value = "upload">
+<input id = "submit" type = "submit" value = "upload" class="btn">
+</form>
 
 <div class = "lyrics" style = "margin-left:30%; margin-right: 30%; text-align: center;">
 
@@ -72,12 +78,23 @@
 
 
 
-</form>
 
 
 
 
 </div>
+<script>
+var  mn = $(".navbar.navbar-default");
+var  mns = "navbar-fixed-top";
+var  hdr = $('#header').height(); 
 
+$(window).scroll(function() {
+  if( $(this).scrollTop() > (hdr+80) ) {
+    mn.addClass(mns);
+  } else {
+    mn.removeClass(mns);
+  }
+});
+</script>
 </body>
 </html>

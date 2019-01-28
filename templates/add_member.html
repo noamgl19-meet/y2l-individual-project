@@ -1,51 +1,40 @@
 <html>
 <head>
-
 	<title>add member to GangBand</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+	<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 </head>
-<body>
-
+<body class="form-v5">
+<center>
+<div class="page-content">
+<div class="form-v5-content">
 <div class = "member_form">
-
-
-
-	<form action = "/add_member" method="post">
-
-
+	<form action = "/add_member" method="post" class="form-detail">
+	<h2>Add the first band member</h2>
+		<div class="form-row">
 		<span>member name:</span>
-		<br>
-		<input type = "text" name = "member_name" placeholder="member name here">
-		<br>
+		<input type = "text" name = "member_name" placeholder="member name here" class="input-text">
+		<i class="fas fa-user"></i>
+		</div>
+		<div class="form-row">
 		<span>instrument</span>
-		<br>
-		<input type = "text" name = "instrument" placeholder="instrument here">
-		<br>
-		
-		<input id = "submit" type = "submit" value = "sign me up!">
-
-
-
-
+		<input type = "text" name = "instrument" placeholder="instrument here" class="input-text">
+		<i class="fas fa-user"></i>
+		</div>
+		<input id = "submit" type = "submit" value = "sign up" class="register">
 	</form>
 	<h1>{{msg}}</h1>
 
+	</div>
+	</div>
+	</center>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-
+  gtag('config', 'UA-23581568-13');
+</script>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

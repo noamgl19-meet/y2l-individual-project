@@ -2,52 +2,47 @@
 <head>
 
 	<title>login</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 
 </head>
-<body>
-
+<body class="form-v5">
+<center>
+<div class="page-content">
+<div class="form-v5-content">
 <div class = "login_form">
 
+	<form action = "/" method="post" class="form-detail">
+<h2>Log in</h2>
 
 
-	<form action = "/" method="post">
-
-
-		
+		<div class="form-row">
 		<span>Band Username</span>
-		<br>
-		<input type = "text" name = "username" placeholder="username here">
-		<br>
+		<input type = "text" name = "username" placeholder="username here" class="input-text" required>
+		</div>
+		<div class="form-row">
 		<span>Password</span>
-		<br>
-		<input type = "password" name = "password" placeholder="password here">
-		<br>
-		<input id = "submit" type = "submit" value = "log me in!">
-
+		<input type = "password" name = "password" placeholder="password here" class="input-text" required>
+		</div>
+		<input id = "submit" type = "submit" value = "Log in" class="register">
+<br>
+	<a href = "{{url_for('register')}}">not signed up yet?</a>
 
 
 
 	</form>
 	<h1>{{msg}}</h1>
-	<a href = "{{url_for('register')}}">not signed up yet?</a>
 
-
-
+</div></div>
 
 </div>
+</center>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-
-
-
-
-
-
-
-
-
-
-
-
+  gtag('config', 'UA-23581568-13');
+</script>
 </body>
 </html>

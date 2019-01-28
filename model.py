@@ -69,9 +69,9 @@ class Tasks(Base):
 	id = Column(Integer, primary_key = True)
 	member_name = Column(String)
 	name = Column(String)
-	link = Column(String)
+	link = Column(String, nullable = True)
 	band_name = Column(String)
-	notes = Column(String)
+	notes = Column(String, nullable = True)
 	send_to = Column(String)
 
 class Reply(Base):

@@ -9,7 +9,7 @@ from database import add_reply, query_reply_by_name, add_message, query_all_band
 
 #constants
 UPLOAD_FOLDER = 'static/'
-ALLOWED_EXTENSIONS = set(['mp3', 'wav', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['mp3', 'wav'])
 
 
 
